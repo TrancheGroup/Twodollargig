@@ -1,0 +1,30 @@
+name: Validate TwoDollarGig
+on:
+  push:
+    branches: [main]
+  pull_request:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+      - name: Install
+        run: npm ci
+      - name: Calculator unit tests
+        run: npm test
+      - name: Build SEO pages
+        run: npm run build
+      - name: Verify generated site
+        run: npm run verify
+      - name: Validate browser scripts
+        run: |
+          node --check src/app.js
+          node --check src/pro.js
+          node --check scripts/build.mjs
+          node --check netlify/functions/checkout.mjs
+          node --check netlify/functions/billing-portal.mjs
+          node --check netlify/functions/stripe-webhook.mjs

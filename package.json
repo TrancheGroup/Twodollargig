@@ -3,16 +3,14 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
+  "description": "Free true net hourly earnings calculator for gig workers",
   "scripts": {
     "build": "node scripts/build.mjs",
     "dev": "node scripts/dev.mjs",
-    "test": "node --test"
+    "test": "node --test",
+    "verify": "node scripts/verify.mjs"
   },
   "engines": {
     "node": ">=20"
-  },
-  "dependencies": {
-    "@supabase/supabase-js": "2.57.0",
-    "stripe": "18.5.0"
   }
 }
