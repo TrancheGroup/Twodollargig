@@ -157,7 +157,7 @@ export function initPro({config,getCurrent:current,loadScenario:load}) {
   };
   if(enabled) {
     connect(config).then(async c=>{
-      c.auth.onAuthStateChange((event)=>{if(event==="SIGNED_IN"||event==="SIGNED_OUT"||event==="TOKEN_REFRESHED")refresh().catch(()=>{});});
+      c.auth.onAuthStateChange((event)=>{if(event==="SIGNED_IN"||event==="SIGNED_OUT"||event==="TOKEN_REFRESHED")queueMicrotask(()=>refresh().catch(()=>{}));});
       await onCheckoutComplete();
     }).catch(()=>{});
   }

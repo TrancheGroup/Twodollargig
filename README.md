@@ -14,7 +14,7 @@ Prerequisites: Node 20+.
     npm run verify
     npm run dev
 
-Open http://localhost:4173/. The preview server is static and does not emulate Netlify functions. To test the billing functions locally after adding credentials, use Netlify CLI \`netlify dev\`.
+Open http://localhost:4173/. The preview server is static and does not emulate Netlify functions. To test the billing functions locally after adding credentials, use Netlify CLI `netlify dev`.
 
 ## Tax/earnings model (2026)
 
@@ -35,7 +35,7 @@ IRS sources:
 
 ## SEO structure
 
-Build generates static, independently indexable pages from \`src/pages.json\`: the homepage plus 8 platform/intent-specific calculators. Every landing page has unique introduction, explanatory content, FAQs, FAQ structured data, canonical URL, title, description and platform selection. The shared functionality is imported from \`src/app.js\` and \`src/calc.mjs\`.
+Build generates static, independently indexable pages from `src/pages.json`: the homepage plus 8 platform/intent-specific calculators. Every landing page has unique introduction, explanatory content, FAQs, FAQ structured data, canonical URL, title, description and platform selection. The shared functionality is imported from `src/app.js` and `src/calc.mjs`.
 
 Pages:
 - /
@@ -50,34 +50,34 @@ Pages:
 
 Also generated: /privacy/, /terms/, /sitemap.xml, /robots.txt.
 
-Set \`SITE_URL=https://your-canonical-domain\` at **build time** so the canonical and sitemap links point to the live website. Default: https://twodollargig.netlify.app.
+Set `SITE_URL=https://your-canonical-domain` at **build time** so the canonical and sitemap links point to the live website. Default: https://twodollargig.netlify.app.
 
 ## Netlify deployment
 
-1. Connect GitHub repository \`TrancheGroup/Twodollargig\` to a Netlify project. It will use \`netlify.toml\`, run \`npm run build\`, and publish \`dist/\`.
-2. Set \`SITE_URL\` for the production build, then build/deploy.
+1. Connect GitHub repository `TrancheGroup/Twodollargig` to a Netlify project. It will use `netlify.toml`, run `npm run build`, and publish `dist/`.
+2. Set `SITE_URL` for the production build, then build/deploy.
 3. The free calculator needs **no backend, API credentials, authentication, or database**.
 4. Do not turn on Pro until its dedicated database, Stripe prices and webhook are configured.
 
-The \`.netlify/\` directory is gitignored. Production secrets must be configured in Netlify’s environment settings with **Functions** scope, not in \`netlify.toml\` or committed files.
+The `.netlify/` directory is gitignored. Production secrets must be configured in Netlify’s environment settings with **Functions** scope, not in `netlify.toml` or committed files.
 
 ## Pro ($2/month, optional $20/year)
 
 Pro code is included but must be provisioned before it can take real payments. **Do not advertise live paid cloud history until the full subscription flow is tested.**
 
 1. Create a **dedicated TwoDollarGig Supabase project** (do not reuse another project's customer database by accident).
-2. Execute \`supabase/schema.sql\` once; confirm that RLS is enabled and anonymous users cannot read entries. Enable email OTP/magic links in Supabase Auth. Allow the production URL under Auth redirect URLs.
-3. In the selected Stripe account, create two *recurring* prices: USD $2 per month and USD $20 per year. Copy the price IDs. Create a webhook endpoint \`https://your-domain/.netlify/functions/stripe-webhook\` listening for \`checkout.session.completed\`, \`customer.subscription.created\`, \`customer.subscription.updated\`, \`customer.subscription.deleted\`.
-4. Set environment variables (sample in \`.env.example\`):
-    * Build/client: \`PUBLIC_SUPABASE_URL\`, \`PUBLIC_SUPABASE_ANON_KEY\` (public values only).
-    * Server-only functions: \`SUPABASE_SERVICE_ROLE_KEY\`, \`STRIPE_SECRET_KEY\`, \`STRIPE_WEBHOOK_SECRET\`, \`STRIPE_MONTHLY_PRICE_ID\`, \`STRIPE_ANNUAL_PRICE_ID\`.
+2. Execute `supabase/schema.sql` once; confirm that RLS is enabled and anonymous users cannot read entries. Enable email OTP/magic links in Supabase Auth. Allow the production URL under Auth redirect URLs.
+3. In the selected Stripe account, create two *recurring* prices: USD $2 per month and USD $20 per year. Copy the price IDs. Create a webhook endpoint `https://your-domain/.netlify/functions/stripe-webhook` listening for `checkout.session.completed`, `customer.subscription.created`, `customer.subscription.updated`, `customer.subscription.deleted`.
+4. Set environment variables (sample in `.env.example`):
+    * Build/client: `PUBLIC_SUPABASE_URL`, `PUBLIC_SUPABASE_ANON_KEY` (public values only).
+    * Server-only functions: `SUPABASE_SERVICE_ROLE_KEY`, `STRIPE_SECRET_KEY`, `STRIPE_WEBHOOK_SECRET`, `STRIPE_MONTHLY_PRICE_ID`, `STRIPE_ANNUAL_PRICE_ID`.
 5. Deploy again; make a real or Stripe test-mode checkout using matching keys, verify webhook event, entitlement row, cloud insert, reload of history on a second device, cancellation, and billing-portal link before enabling production payments.
 
-**Security model:** Stripe webhook signatures verified server-side; API requests authorize users with Supabase Auth; subscription entitlement rows are webhook-owned; paid entries require authenticated user ID + paid entitlement through RLS. Server secrets never ship in \`dist/\`. Free calculations never call cloud storage.
+**Security model:** Stripe webhook signatures verified server-side; API requests authorize users with Supabase Auth; subscription entitlement rows are webhook-owned; paid entries require authenticated user ID + paid entitlement through RLS. Server secrets never ship in `dist/`. Free calculations never call cloud storage.
 
 ## Testing / release checklist
 
-Automated test workflow runs \`npm test\`, \`npm run build\`, generated-site integrity checks, and JavaScript syntax checks.
+Automated test workflow runs `npm test`, `npm run build`, generated-site integrity checks, and JavaScript syntax checks.
 
 Manual browser checks still needed before claiming production-ready:
 - Mobile viewport (360px wide), no input zoom/layout overflow

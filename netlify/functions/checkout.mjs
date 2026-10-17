@@ -1,9 +1,13 @@
-import {json,supabaseUser,stripeAPI,needed} from "../../lib/server.mjs";
+import {json,supabaseUser,stripeAPI,adminREST,needed} from "../../lib/server.mjs";
 export default async function(request){
   if(request.method!=="POST")return json({error:"Method not allowed."},405);
-  if(!needed("STRIPE_SECRET_KEY","PUBLIC_SUPABASE_URL","PUBLIC_SUPABASE_ANON_KEY","STRIPE_MONTHLY_PRICE_ID","STRIPE_ANNUAL_PRICE_ID"))return json({error:"Pro checkout is not available yet."},503);
+  if(!needed("STRIPE_SECRET_KEY","PUBLIC_SUPABASE_URL","PUBLIC_SUPABASE_ANON_KEY","STRIPE_MONTHLY_PRICE_ID","STRIPE_ANNUAL_PRICE_ID","SUPABASE_SERVICE_ROLE_KEY"))return json({error:"Pro checkout is not available yet."},503);
   try{
     const user=await supabaseUser(request);if(!user)return json({error:"Sign in before checking out."},401);
+    const active=await adminREST("gig_pro_entitlements","?user_id=eq."+encodeURIComponent(user.id)+"&select=status,access_until");
+    if(active?.[0] && ["active","trialing","canceled"].includes(active[0].status) && new Date(active[0].access_until).getTime()>Date.now()){
+      return json({error:"You already have Pro. Use Manage subscription instead."},409);
+    }
     const payload=await request.json().catch(()=>({}));
     const plan=payload.plan==="annual"?"annual":"monthly";
     const price=plan==="annual"?process.env.STRIPE_ANNUAL_PRICE_ID:process.env.STRIPE_MONTHLY_PRICE_ID;

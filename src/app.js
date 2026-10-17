@@ -12,7 +12,7 @@ function savedScenario() {
   try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || "null"); }
   catch { return null; }
 }
-const initial = sanitize({...DEFAULTS, platform:pageConfig.platform || DEFAULTS.platform, ...(savedScenario() || {})});
+const initial = sanitize({...DEFAULTS, ...(savedScenario() || {}), platform:pageConfig.isLanding ? pageConfig.platform : ((savedScenario() || {}).platform || DEFAULTS.platform)});
 let current = initial;
 function setValue(name,value) {
   const el = form.elements.namedItem(name);
@@ -39,7 +39,6 @@ function setScenario(input) {
   update();
 }
 function text(id,value) { const target = $("#"+id); if (target) target.textContent = value; }
-function signed(n) { return (n < 0 ? "−" : "") + money(Math.abs(n)); }
 function toggleGas() {
   const total = getValue("gasMode") === "total";
   $("#gas-total-wrap").classList.toggle("is-hidden",!total);

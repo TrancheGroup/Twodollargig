@@ -26,7 +26,7 @@ for(const page of pages){
     TITLE:esc(page.title),DESCRIPTION:esc(page.description),CANONICAL:esc(canonical),
     H1:esc(page.h1),INTRO:esc(page.intro),WHY:esc(page.why),
     FAQ:faq,RELATED:links,SCHEMA:cleanJson(schema),
-    CONFIG:cleanJson({...config,platform:page.platform}),YEAR:"2026"
+    CONFIG:cleanJson({...config,platform:page.platform,isLanding:!!page.slug}),YEAR:"2026"
   }))html=html.replaceAll("%%"+tag+"%%",value);
   const dir=join(out,page.slug);await mkdir(dir,{recursive:true});
   await writeFile(join(dir,"index.html"),html);
