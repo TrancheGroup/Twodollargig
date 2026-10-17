@@ -1,0 +1,209 @@
+[
+  {
+    "slug": "",
+    "title": "True Hourly Rate Calculator for Gig Workers — After Gas & Taxes | TwoDollarGig",
+    "description": "See what you really make per hour on DoorDash, Uber, Instacart and more after gas, mileage, and taxes. Free, instant, no signup.",
+    "h1": "True Hourly Rate Calculator",
+    "platform": "DoorDash",
+    "intro": "Your app tells you what you earned. This free calculator shows what you actually kept after gas, vehicle wear, other expenses, and an estimated self-employment tax reserve.",
+    "why": "Your gross hourly rate is only the starting point. Count the miles you drove and every hour you spent working to see whether a shift was worth it.",
+    "faq": [
+      [
+        "Is this calculator free?",
+        "Yes. Instant calculations, CSV exports and print-to-PDF are free without an account."
+      ],
+      [
+        "Does the IRS mileage deduction count as money I spent?",
+        "No. The standard mileage deduction is a tax calculation, not a separate cash expense. Actual vehicle costs are estimated independently."
+      ],
+      [
+        "Does this include income taxes?",
+        "It estimates a self-employment tax reserve, not federal or state income tax. Individual tax situations vary."
+      ]
+    ]
+  },
+  {
+    "slug": "doordash-true-hourly-rate",
+    "title": "DoorDash True Hourly Rate Calculator (2026) | TwoDollarGig",
+    "description": "Find your true DoorDash hourly earnings after gas, car wear, expenses and self-employment taxes. Free calculator with 2026 mileage rates.",
+    "h1": "DoorDash True Hourly Rate Calculator",
+    "platform": "DoorDash",
+    "intro": "DoorDash earnings can look great until you count every delivery mile and all your working time. Calculate what remains after driving costs and a tax reserve, including tips in gross earnings.",
+    "why": "For a fair comparison, enter all the time you were available for orders, not just active delivery time. Include driving to pickups and between offers when those miles qualify as business use.",
+    "faq": [
+      [
+        "How much do I really make on DoorDash?",
+        "Enter your actual Dash earnings (including tips), total hours, business miles and expenses to see an estimated net hourly rate."
+      ],
+      [
+        "Should I count time between deliveries?",
+        "Yes, include all hours spent working in the denominator to understand how valuable the entire shift was."
+      ],
+      [
+        "Can I deduct all the miles I drove?",
+        "Only qualifying business miles are deductible. Keep records and use IRS rules to distinguish personal and commuting travel."
+      ]
+    ]
+  },
+  {
+    "slug": "doordash-after-expenses-calculator",
+    "title": "DoorDash After Expenses Calculator | TwoDollarGig",
+    "description": "Calculate DoorDash pay after fuel, vehicle wear, other costs and a simple self-employment tax reserve. Estimate your true per-hour earnings.",
+    "h1": "DoorDash After Expenses Calculator",
+    "platform": "DoorDash",
+    "intro": "A $150 DoorDash shift is not $150 of profit. Enter what you brought in, how long the shift lasted, and what your car cost to operate to see the difference.",
+    "why": "Compare low-mileage and high-mileage shifts using net dollars per hour, not the total shown on the delivery app. The cash-cost and tax-deduction figures are shown separately.",
+    "faq": [
+      [
+        "What DoorDash expenses should I include?",
+        "Include qualifying work costs not already counted in the fuel and nonfuel vehicle estimates, such as delivery bags or paid parking."
+      ],
+      [
+        "Does DoorDash pay for gas?",
+        "Your individual promotions and arrangements may vary. Enter the actual earnings you received and the gas you paid."
+      ],
+      [
+        "Why is my net hourly rate lower than gross?",
+        "Fuel, vehicle wear, other costs and reserved self-employment taxes reduce what remains from gross pay."
+      ]
+    ]
+  },
+  {
+    "slug": "uber-earnings-after-gas",
+    "title": "Uber Earnings After Gas Calculator (2026) | TwoDollarGig",
+    "description": "See how much your Uber driving really pays per hour after gas, car costs and estimated self-employment taxes. Free 2026 calculator.",
+    "h1": "Uber Earnings After Gas Calculator",
+    "platform": "Uber",
+    "intro": "Uber ride payouts are not the same as money in your pocket. Work out your estimated net hourly pay by including the fuel used, wear on your vehicle and every hour spent driving.",
+    "why": "A long shift with lots of unpaid driving time can earn less than a shorter one. Use hours on the clock rather than only passenger time.",
+    "faq": [
+      [
+        "Can I add Uber tips?",
+        "Yes. Add your trips, promotions and tips into gross earnings for the period; do not double-count amounts already included in platform payouts."
+      ],
+      [
+        "What about gas I pay at the pump?",
+        "Choose total gas spent or a per-mile fuel estimate; the calculator never charges both at once."
+      ],
+      [
+        "Is the 2026 mileage rate built in?",
+        "Yes. It uses 72.5 cents for January through June 2026 and 76 cents for July through December 2026."
+      ]
+    ]
+  },
+  {
+    "slug": "lyft-earnings-calculator",
+    "title": "Lyft True Hourly Earnings Calculator | TwoDollarGig",
+    "description": "Estimate Lyft earnings after gas, mileage, maintenance and a self-employment tax reserve. Know your actual hourly driving profit.",
+    "h1": "Lyft True Hourly Earnings Calculator",
+    "platform": "Lyft",
+    "intro": "The number on a Lyft earnings screen doesn't include what it costs to keep your car running. Turn your weekly or shift totals into an estimated real hourly rate.",
+    "why": "Compare different shifts with the same cost assumptions. This helps expose the impact of extra miles and idle time without pretending the mileage deduction is cash.",
+    "faq": [
+      [
+        "Should I use booked hours or online hours?",
+        "Use all hours you consider work to understand your true hourly return, including time waiting for rides."
+      ],
+      [
+        "Are tips included?",
+        "Include tips and incentives in your gross amount."
+      ],
+      [
+        "How is vehicle wear calculated?",
+        "A customizable per-mile allowance covers estimated maintenance, depreciation and other nonfuel vehicle costs."
+      ]
+    ]
+  },
+  {
+    "slug": "instacart-pay-calculator",
+    "title": "Instacart Pay After Expenses Calculator | TwoDollarGig",
+    "description": "See how much you really earn on Instacart per hour after driving costs, parking, supplies and an estimated self-employment tax reserve.",
+    "h1": "Instacart Pay After Expenses Calculator",
+    "platform": "Instacart",
+    "intro": "Instacart batches can involve shopping time, driving and waiting. Put all three into your hours worked, and subtract operating costs to see an estimated true hourly return.",
+    "why": "Don't compare one big-tipping batch with a shorter batch without considering drive time and distance. The result is a consistent net-per-hour measure.",
+    "faq": [
+      [
+        "Do I count shopping time?",
+        "Yes. Count shopping, checkout, waiting and delivery time as work if you want a realistic hourly average."
+      ],
+      [
+        "Do tips go into gross pay?",
+        "Yes. Include paid tips plus other actual earnings from the period."
+      ],
+      [
+        "Can I include tolls and parking?",
+        "Use other expenses for qualifying out-of-pocket costs that are not included in your vehicle per-mile assumptions."
+      ]
+    ]
+  },
+  {
+    "slug": "amazon-flex-profit-calculator",
+    "title": "Amazon Flex Profit Calculator After Gas & Taxes | TwoDollarGig",
+    "description": "Calculate what an Amazon Flex block really earns per hour after gas, mileage, vehicle wear and estimated self-employment taxes.",
+    "h1": "Amazon Flex Profit Calculator",
+    "platform": "Amazon Flex",
+    "intro": "A flat-rate Amazon Flex block can feel predictable, but the distance and finishing time change its true profitability. Enter your actual figures for an honest net hourly estimate.",
+    "why": "Use actual hours rather than the scheduled block length when your route runs long. Include qualifying business miles to understand what high-mileage routes cost.",
+    "faq": [
+      [
+        "Should I use the scheduled block hours?",
+        "Use your actual total working time. You can compare it with the advertised block length separately."
+      ],
+      [
+        "Do I subtract the IRS mileage deduction from earnings?",
+        "No. It is shown as a potential tax deduction and used only when estimating taxable profit."
+      ],
+      [
+        "Can this compare Flex blocks?",
+        "Yes. Run different block scenarios for free. Pro adds optional saved history across devices."
+      ]
+    ]
+  },
+  {
+    "slug": "gig-worker-mileage-deduction",
+    "title": "Gig Worker Mileage Deduction Calculator (2026) | TwoDollarGig",
+    "description": "Estimate the IRS 2026 mileage deduction for gig work and see the separate impact of vehicle expenses on take-home hourly pay.",
+    "h1": "Gig Worker Mileage Deduction Calculator",
+    "platform": "Other",
+    "intro": "Tracking deductible miles matters, but a tax deduction is not a reimbursement. This calculator shows your estimated IRS mileage deduction next to actual driving costs.",
+    "why": "The 2026 IRS standard business rate changed on July 1. Select the work date to apply the correct rate, and keep reliable mileage records for any deduction you claim.",
+    "faq": [
+      [
+        "What is the IRS business mileage rate in 2026?",
+        "It is 72.5 cents per qualifying business mile from January through June 2026 and 76 cents from July through December 2026."
+      ],
+      [
+        "Is mileage deducted twice with gas?",
+        "No. Gas and vehicle wear affect cash profit. The standard mileage allowance is used separately when estimating taxable business profit."
+      ],
+      [
+        "Does every mile I drive qualify?",
+        "No. Only eligible business driving counts. Personal trips and some commuting do not qualify."
+      ]
+    ]
+  },
+  {
+    "slug": "gig-worker-tax-calculator",
+    "title": "Gig Worker Self-Employment Tax Reserve Calculator | TwoDollarGig",
+    "description": "Estimate the self-employment tax to set aside from DoorDash, Uber, Instacart or other gig earnings after business mileage and costs.",
+    "h1": "Gig Worker Tax Reserve Calculator",
+    "platform": "Other",
+    "intro": "Taxes can turn an apparently strong gig-work shift into a smaller take-home amount. See an illustrative self-employment tax reserve based on earnings after estimated deductions.",
+    "why": "This is a simple reserve, not a complete tax return. Actual taxes depend on annual income, Social Security wage limits, income tax, filing status, other work and deductions.",
+    "faq": [
+      [
+        "What is the self-employment tax rate?",
+        "The usual combined rate is 15.3%, generally applied to 92.35% of net self-employment earnings, subject to thresholds and limits."
+      ],
+      [
+        "Does this include federal or state income tax?",
+        "No. It estimates self-employment taxes only; set aside more if you expect income tax liability."
+      ],
+      [
+        "How accurate is a single shift's tax reserve?",
+        "It is a planning approximation. Actual taxes are computed on an annual basis with additional limits, rules and deductions."
+      ]
+    ]
+  }
+]

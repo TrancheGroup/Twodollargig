@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f8f2">
+  <title>%%TITLE%%</title>
+  <meta name="description" content="%%DESCRIPTION%%">
+  <link rel="canonical" href="%%CANONICAL%%">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="%%TITLE%%">
+  <meta property="og:description" content="%%DESCRIPTION%%">
+  <meta property="og:url" content="%%CANONICAL%%">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="/assets/styles.css">
+  <script type="application/ld+json">%%SCHEMA%%</script>
+  <script id="gig-config" type="application/json">%%CONFIG%%</script>
+  <script type="module" src="/assets/app.js"></script>
+</head>
+<body>
+<div class="top-stripe" aria-hidden="true"><span></span><span></span></div>
+<header class="site-header">
+  <div class="container nav">
+    <a class="brand" href="/" aria-label="TwoDollarGig home"><span class="brand-icon">2<span>$</span></span><span>TwoDollar<span class="brand-strong">Gig</span></span></a>
+    <nav class="nav-links" aria-label="Main navigation"><a href="#how-it-works">How it works</a><a href="#faq">FAQs</a><a href="#pro" class="nav-pro">Pro <span>$2/mo</span></a></nav>
+  </div>
+</header>
+<main>
+<section class="hero container">
+ <div class="eyebrow"><span class="green-dot"></span> BUILT FOR PEOPLE WHO DRIVE FOR A LIVING</div>
+ <h1>%%H1%%<span class="period">.</span></h1>
+ <p class="hero-description">%%INTRO%%</p>
+ <div class="trust"><span>✓ Free forever</span><span>✓ No signup</span><span>✓ 2026 IRS mileage rates</span></div>
+</section>
+<section class="calculator container" id="calculator" aria-label="True hourly rate calculator">
+  <div class="calc-form card">
+   <div class="card-header"><div><div class="section-kicker">01 / YOUR NUMBERS</div><h2>Your shift, your numbers.</h2></div><span class="sample-label">Try the sample · edit any field</span></div>
+   <form id="gig-form" autocomplete="off" novalidate>
+     <div class="form-grid">
+       <label class="field wide">Platform<select name="platform" id="platform"><option>DoorDash</option><option>Uber</option><option>Instacart</option><option>Lyft</option><option>Amazon Flex</option><option>Other</option></select></label>
+       <label class="field">Period type<select name="kind" id="kind"><option value="shift">Shift</option><option value="week">Week</option></select></label>
+       <label class="field">Work date<input name="workDate" id="workDate" type="date" min="2026-01-01" max="2026-12-31" required></label>
+       <label class="field">Gross earnings <span class="helper">Tips included</span><span class="with-prefix"><span>$</span><input name="gross" id="gross" type="number" min="0" step="0.01" inputmode="decimal" required aria-label="Gross earnings dollars"></span></label>
+       <label class="field">Hours worked <span class="helper">Include waiting time</span><span class="with-suffix"><input name="hours" id="hours" type="number" min="0" step="0.01" inputmode="decimal" required><span>hrs</span></span></label>
+       <label class="field wide">Business miles driven <span class="helper">Qualified business miles only</span><span class="with-suffix"><input name="miles" id="miles" type="number" min="0" step="0.1" inputmode="decimal" required><span>mi</span></span></label>
+     </div>
+     <details class="advanced" id="advanced">
+       <summary>Adjust fuel & vehicle costs <span class="summary-side">Optional <span class="plus" aria-hidden="true">+</span></span></summary>
+       <div class="advanced-body">
+         <div class="input-block"><div class="field-label">Fuel cost</div><div class="segmented" role="group" aria-label="Fuel input method"><label><input type="radio" name="gasMode" value="perMile" checked><span>Per mile</span></label><label><input type="radio" name="gasMode" value="total"><span>Total spent</span></label></div></div>
+         <div class="form-grid">
+           <label class="field" id="gas-per-mile-wrap">Gas per mile<span class="with-prefix"><span>$</span><input name="gasPerMile" type="number" min="0" step="0.01" inputmode="decimal"></span></label>
+           <label class="field is-hidden" id="gas-total-wrap">Total gas spent<span class="with-prefix"><span>$</span><input name="gasTotal" type="number" min="0" step="0.01" inputmode="decimal"></span></label>
+           <label class="field">Vehicle wear per mile<span class="with-prefix"><span>$</span><input name="wearPerMile" type="number" min="0" step="0.01" inputmode="decimal"></span></label>
+           <label class="field">Other work expenses<span class="with-prefix"><span>$</span><input name="otherExpenses" type="number" min="0" step="0.01" inputmode="decimal"></span></label>
+         </div>
+         <p class="fine-print">Fuel defaults to $0.14/mi and estimated nonfuel wear/depreciation to $0.20/mi. Both are editable assumptions, not IRS rates. Do not enter fuel again under other expenses.</p>
+       </div>
+     </details>
+     <p class="auto-note"><span class="green-dot"></span> Results update instantly. Your current numbers stay on this device.</p>
+   </form>
+  </div>
+  <div class="results card" aria-live="polite" aria-atomic="false">
+    <div class="results-header"><span class="section-kicker">02 / THE REAL NUMBER</span><span class="live-pill"><span class="green-dot"></span> LIVE CALCULATION</span></div>
+    <div class="rate-label">YOUR TRUE NET HOURLY RATE</div>
+    <div class="big-rate" id="rate">$0.00<span>/hr</span></div>
+    <div class="comparison" id="comparison">After estimated driving costs and tax reserve</div>
+    <div class="metric-grid">
+      <div class="metric"><span>True net earnings</span><strong id="net-earnings">$0.00</strong></div>
+      <div class="metric"><span>Gross hourly rate</span><strong id="gross-hourly">$0.00</strong></div>
+    </div>
+    <div class="visual-strip" aria-label="Gross earnings allocation" id="allocation"><span class="strip-net"></span><span class="strip-cost"></span><span class="strip-tax"></span></div>
+    <div class="strip-legend"><span><i class="legend-dot green"></i> Take-home</span><span><i class="legend-dot ink"></i> Costs</span><span><i class="legend-dot orange"></i> Tax reserve</span></div>
+    <div class="breakdown">
+      <h3>Where your money goes</h3>
+      <div class="breakdown-row"><span>Gross earnings</span><strong id="r-gross">$0.00</strong></div>
+      <div class="breakdown-row"><span>Estimated vehicle costs <small>(fuel + wear)</small></span><strong id="r-vehicle">−$0.00</strong></div>
+      <div class="breakdown-row"><span>Other expenses</span><strong id="r-other">−$0.00</strong></div>
+      <div class="breakdown-row"><span>Self-employment tax reserve <small>(estimate)</small></span><strong id="r-tax">−$0.00</strong></div>
+      <div class="breakdown-row total"><span>True net earnings</span><strong id="r-net">$0.00</strong></div>
+    </div>
+    <div class="tax-detail"><div class="tax-icon">↗</div><div><strong id="r-mileage">$0.00</strong><span>Estimated standard mileage deduction <b id="r-rate">(76¢/mile)</b></span><p>This is a potential tax deduction, not cash you spend. It reduces the profit used to estimate the tax reserve; it is <strong>not</strong> subtracted twice.</p></div></div>
+    <div class="result-actions"><button type="button" id="export-csv" class="btn btn-outline">↓ Download CSV</button><button type="button" id="print" class="btn btn-outline">⎙ Print / PDF</button></div>
+    <div class="disclaimer">Estimates only. Not tax or financial advice. Actual costs and taxes vary.</div>
+  </div>
+</section>
+<section class="cloud-prompt container" aria-label="Cloud save upgrade">
+  <div><span class="eyebrow">SAVE YOUR PROGRESS</span><h2>Good shift? Keep the proof.</h2><p>Saved on this device only. Unlock cloud history and access it anywhere for <strong>$2/month.</strong></p></div>
+  <button class="btn btn-dark" type="button" data-open-pro>Save my shifts <span aria-hidden="true">↗</span></button>
+</section>
+<section class="content-sections container" id="how-it-works">
+ <div class="section-kicker">BUILT FOR THE REAL WORLD</div><h2>How this calculator works</h2>
+ <div class="steps"><article><div class="step-number">01</div><h3>Start with what you earned</h3><p>Add gross income including tips and promotions, plus every hour worked and eligible business mile driven.</p></article><article><div class="step-number">02</div><h3>Count the cost of driving</h3><p>We estimate gasoline and nonfuel wear based on your mileage. Adjust the assumptions to match your actual vehicle.</p></article><article><div class="step-number">03</div><h3>Reserve for taxes</h3><p>The standard mileage deduction helps estimate taxable business profit. We then estimate self-employment tax to set aside.</p></article></div>
+ <div class="explain-grid"><div><h2>What's included in the true rate</h2><p>%%WHY%%</p><p>Your true hourly rate is gross earnings minus estimated cash expenses and a simplified self-employment tax reserve, divided by total working hours.</p><p>It does not estimate federal or state income tax, exact vehicle depreciation, sales tax, or individual tax credits. Use your records and consult a tax professional for filing decisions.</p></div><aside class="formula"><span>THE FORMULA</span><div>Gross earnings</div><div>− Gas + vehicle wear</div><div>− Other work expenses</div><div>− SE tax reserve</div><div class="formula-line"></div><strong>÷ Total hours = True net hourly</strong><small>IRS mileage allowance is used for estimating taxable profit—not deducted as another cash expense.</small></aside></div>
+</section>
+<section id="pro" class="pro-section container">
+ <div class="pro-card">
+  <div class="pro-copy"><span class="eyebrow">TWO DOLLARS. ALL YOUR SHIFTS.</span><h2>Know which shifts are actually worth it.</h2><p>Free tells you what you made today. Pro helps you spot patterns across every shift and week.</p><ul class="check-list"><li>Unlimited cloud-saved shifts and weeks</li><li>Your true net hourly rate on every entry</li><li>History that follows you across devices</li><li>Password-free email magic link</li></ul></div>
+  <div class="price-card"><span>TwoDollarGig Pro</span><div class="price">$2<span>/month</span></div><p>Simple subscription. Cancel anytime.</p><button type="button" class="btn btn-lime" data-open-pro>Unlock Pro →</button><button type="button" class="annual-link" data-open-pro>Or save with $20/year</button><small>The calculator and exports stay free.</small></div>
+ </div>
+</section>
+<section class="faq-section container" id="faq"><div class="section-kicker">QUESTIONS, ANSWERED</div><h2>Frequently asked questions</h2><div class="faqs">%%FAQ%%</div></section>
+<section class="related container"><div class="section-kicker">MORE FREE CALCULATORS</div><h2>Find your platform.</h2><div class="related-links">%%RELATED%%</div></section>
+</main>
+<footer class="footer"><div class="container footer-inner"><div><a class="brand" href="/"><span class="brand-icon">2<span>$</span></span><span>TwoDollar<span class="brand-strong">Gig</span></span></a><p>See what you actually keep.</p></div><div class="footer-links"><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><a href="https://www.irs.gov/tax-professionals/standard-mileage-rates" target="_blank" rel="noopener noreferrer">IRS mileage rates ↗</a></div><small>© %%YEAR%% TwoDollarGig. Independent calculator, not affiliated with delivery or rideshare platforms.</small></div></footer>
+<div class="print-only" id="print-summary"><h2>TwoDollarGig — true hourly estimate</h2><p id="print-date"></p><p>Estimates only. Not tax or financial advice. Actual costs and taxes vary.</p></div>
+<dialog id="pro-dialog" aria-labelledby="dialog-title">
+ <div class="dialog-top"><div><span class="section-kicker">TWODOLLARGIG PRO</span><h2 id="dialog-title">Your shifts. Anywhere.</h2></div><button type="button" id="close-dialog" aria-label="Close dialog" class="close-dialog">×</button></div>
+ <p class="dialog-intro">Unlimited cloud history, with true hourly pay on every entry. No passwords.</p>
+ <div class="plans" role="radiogroup" aria-label="Choose billing"><label><input type="radio" name="plan" value="monthly" checked><span><b>$2/month</b><small>Pay monthly</small></span></label><label><input type="radio" name="plan" value="annual"><span><b>$20/year</b><small>Save $4 yearly</small></span></label></div>
+ <button type="button" id="start-checkout" class="btn btn-lime dialog-cta" hidden>Continue to secure checkout →</button>
+ <form id="login-form"><label class="field">Email for your magic link<input type="email" id="login-email" autocomplete="email" placeholder="you@example.com" required></label><button class="btn btn-dark dialog-cta" type="submit" id="login-btn">Email my sign-in link →</button></form>
+ <div id="pro-message" class="pro-message" role="status" aria-live="polite"></div>
+ <section id="history-area" hidden><div class="history-head"><h3>Your cloud history</h3><button id="sign-out" type="button" class="mini-link">Sign out</button></div><label class="field">Optional name for this entry<input id="entry-label" maxlength="90" placeholder="Friday dinner rush"></label><button type="button" id="save-cloud" class="btn btn-dark dialog-cta">Save current calculation →</button><div id="history-list" class="history-list"></div><button type="button" id="load-more" class="mini-link" hidden>Load older entries ↓</button><button type="button" id="manage-billing" class="mini-link">Manage subscription</button></section>
+ <div class="dialog-foot">No account required for free calculation or exports.</div>
+</dialog>
+</body>
+</html>
