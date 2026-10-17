@@ -15,6 +15,9 @@ for(const page of pages) {
   assert.ok(!html.includes("%%"),"Unreplaced template marker in "+path);
   assert.ok(html.includes("TwoDollarGig Pro"),"Missing Pro price panel in "+path);
   assert.ok(html.includes('id="gig-form"'),"Missing functional calculator form in "+path);
+  assert.ok(html.includes('id="see-rate"'),"Missing primary free calculation CTA in "+path);
+  assert.ok(html.includes('id="mobile-see-rate"'),"Missing mobile free CTA in "+path);
+  assert.ok(html.includes('Unlock Pro — $2/month'),"Pro pricing CTA unclear in "+path);
   assert.ok(html.includes('id="export-csv"'),"Missing CSV export in "+path);
   count++;
 }

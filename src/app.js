@@ -88,4 +88,32 @@ $("#export-csv").addEventListener("click",()=>{
   setTimeout(()=>URL.revokeObjectURL(url),1000);
 });
 $("#print").addEventListener("click",()=>window.print());
+function goToResults() {
+  const result=$("#results-card");
+  if(!result)return;
+  const reduceMotion=window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+  result.scrollIntoView({behavior:reduceMotion?"auto":"smooth",block:"start"});
+  result.focus({preventScroll:true});
+}
+$("#see-rate").addEventListener("click",goToResults);
+$("#mobile-see-rate").addEventListener("click",goToResults);
+if("IntersectionObserver" in window){
+  const bar=$("#mobile-calc-bar");
+  let formVisible=false,resultsVisible=false;
+  const updateSticky=()=>{
+    const shown=window.matchMedia("(max-width: 640px)").matches && formVisible && !resultsVisible;
+    bar.hidden=!shown;
+    bar.classList.toggle("is-visible",shown);
+  };
+  const observer=new IntersectionObserver(entries=>{
+    for(const entry of entries){
+      if(entry.target.id==="gig-form")formVisible=entry.isIntersecting;
+      if(entry.target.id==="results-card")resultsVisible=entry.isIntersecting;
+    }
+    updateSticky();
+  },{threshold:0,rootMargin:"0px 0px -64px 0px"});
+  observer.observe($("#gig-form"));
+  observer.observe($("#results-card"));
+  window.addEventListener("resize",updateSticky,{passive:true});
+}
 initPro({config:pageConfig,getCurrent:()=>({...current}),loadScenario:setScenario});
